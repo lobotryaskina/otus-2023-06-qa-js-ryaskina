@@ -1,0 +1,15 @@
+{
+  "name": "otus-2023-06-qa-js-ryaskina",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "otus-2023-06-qa-js-ryaskina",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "lobotryaskina",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^29.6.1"
+  }
+}

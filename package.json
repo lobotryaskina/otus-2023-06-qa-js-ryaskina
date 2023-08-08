@@ -1,23 +1,39 @@
 {
-  "name": "otus-2023-06-qa-js-ryaskina",
+  "name": "qajs-2022-11",
   "version": "1.0.0",
-  "type": "module",
-  "description": "otus-2023-06-qa-js-ryaskina",
+  "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "lint": "eslint . --ignore-path .gitignore --cache",
+    "lint:fix": "npm run lint -- --fix"
   },
-  "author": "lobotryaskina",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OTUS-QA-JS/qajs-2022-11.git"
+  },
+  "keywords": [],
+  "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/OTUS-QA-JS/qajs-2022-11/issues"
+  },
+  "homepage": "https://github.com/OTUS-QA-JS/qajs-2022-11#readme",
   "devDependencies": {
-    "@babel/core": "^7.22.9",
-    "@babel/preset-env": "^7.22.9",
-    "@jest/globals": "^29.6.1",
-    "@types/jest": "^29.5.3",
-    "babel-jest": "^29.6.2",
-    "jest": "^29.6.2"
+    "@babel/plugin-transform-modules-commonjs": "^7.19.6",
+    "@babel/preset-env": "^7.20.2",
+    "@jest/globals": "^29.5.0",
+    "babel": "^6.23.0",
+    "babel-jest": "^29.3.1",
+    "eslint": "^8.39.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-n": "^15.7.0",
+    "eslint-plugin-promise": "^6.1.1",
+    "jest": "^29.3.1"
   },
   "dependencies": {
-    "node-fetch": "^2.6.12"
+    "eslint-plugin-jest": "^27.2.1"
   }
 }

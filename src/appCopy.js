@@ -39,3 +39,7 @@ export const getTotal = (items = [], discount = 0) => {
   }, 0)
   return total - total * discount / 100
 }
+
+const res1 = numbers.map((number, i) => {
+  return number * i;
+})

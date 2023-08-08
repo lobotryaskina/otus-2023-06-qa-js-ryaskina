@@ -1,7 +1,7 @@
 {
-  "name": "qajs-2022-11",
+  "name": "otus-2023-06-qa-js-ryaskina",
   "version": "1.0.0",
-  "description": "",
+  "description": "otus-2023-06-qa-js-ryaskina",
   "main": "index.js",
   "type": "module",
   "scripts": {
@@ -11,15 +11,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/OTUS-QA-JS/qajs-2022-11.git"
+    "url": "git+github.com:lobotryaskina/otus-2023-06-qa-js-ryaskina.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "lobotryaskina",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/OTUS-QA-JS/qajs-2022-11/issues"
+    "url": "https://github.com:lobotryaskina/otus-2023-06-qa-js-ryaskina/issues"
   },
-  "homepage": "https://github.com/OTUS-QA-JS/qajs-2022-11#readme",
+  "homepage": "https://github.com:lobotryaskina/otus-2023-06-qa-js-ryaskina#readme",
   "devDependencies": {
     "@babel/plugin-transform-modules-commonjs": "^7.19.6",
     "@babel/preset-env": "^7.20.2",

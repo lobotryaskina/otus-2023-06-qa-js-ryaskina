@@ -5,7 +5,7 @@ const config = {
         password: "121FDsvdfB!RFEF_"
       },
     newUser: {
-        userName: 'newUser',
+        userName: 'anotherSix',
         password: 'pas!1SS=4_o1DwoRd'
     }
 }

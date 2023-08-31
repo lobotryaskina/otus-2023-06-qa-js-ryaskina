@@ -31,8 +31,7 @@ const user = {
         return res.body.userID
     },
     //delete a user
-    async userDelete () {
-        const payload = config.newUser
+    userDelete: (payload) => {
         token = this.getAuthToken(payload)
         userID = this.userCreate(payload)
         return supertest(url)
@@ -41,8 +40,7 @@ const user = {
         .set('Authorization', `Bearer ${token}`)
     },
     //get user info
-   async getUserInfo () {
-      const payload = config.newUser
+   getUserInfo: (payload) => {
       token = this.getAuthToken(payload)
       userID = this.userCreate(payload)
       return supertest(url)

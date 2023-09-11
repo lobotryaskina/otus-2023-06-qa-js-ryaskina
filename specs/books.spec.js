@@ -15,7 +15,7 @@ describe('POST Bookstore/v1/Books', () => {
     const isbn = (await book.getBooks(token))[0].isbn
     const res = await book.bookPost(token, userID, isbn)
     expect(res.status).toEqual(201);
-    expect(res.body.isbn).not.toBeNull;
+    expect(res.body.isbn).toBe('string');
   })
 })
 
@@ -28,8 +28,8 @@ describe('PUT Bookstore/v1/Books/{ISBN}', () => {
     const value = (await book.getBooks(token))[1].isbn
     const res = await book.bookPut(token, userID, isbn, value)
     expect(res.status).toEqual(200);
-    expect(res.body.books).toBe(`${userID}`);
-    expect(res.body.books).not.toBeNull;
+    expect(res.body.userID).toBe(`${userID}`);
+    expect(res.body.isbn).toBe('string');
   })
 })
 

@@ -1,5 +1,5 @@
 import supertest from 'supertest';
-import config from "../../framework/config/config";
+import config from "../config/config";
 
 const {url} = config
 let token = ''
@@ -15,20 +15,20 @@ const user = {
         .send(payload)
     },
     //get token
-    getAuthToken: (payload) => {
-        return supertest(url)
+    async getAuthToken(payload) {
+        const res = await supertest(url)
         .post('Account/v1/GenerateToken')
         .set('Accept', 'application/json')
         .send(payload)
-        return res.body.token
+        return (res.body.token)
     },
     //get user ID
-    userCreate: (payload) => {
-        return supertest(url)
+    async userCreate(payload) {
+        const res = await supertest(url)
         .post('Account/v1/User')
         .set('Accept', 'application/json')
         .send(payload)
-        return res.body.userID
+        return (res.body.userID)
     },
     //delete a user
     userDelete: (payload) => {

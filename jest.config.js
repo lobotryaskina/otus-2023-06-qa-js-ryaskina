@@ -153,7 +153,17 @@ export default {
   // testLocationInResults: false,
 
   // The glob patterns Jest uses to detect test files
-  testMatch: ['**/specs/**/*.spec.*']
+  testMatch: ['**/specs/**/*.spec.*'],
+
+    "transform": {
+        "^.+\\.[t|j]sx?$": "babel-jest"
+    },
+    reporters: ['default', 'jest-allure'],
+    testRunner: 'jest-jasmine2',
+    setupFilesAfterEnv: [
+      'jest-allure/dist/setup'
+    ]
+  
 
   // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
   // testPathIgnorePatterns: [

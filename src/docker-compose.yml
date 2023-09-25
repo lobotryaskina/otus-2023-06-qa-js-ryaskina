@@ -1,0 +1,5 @@
+services:
+  jest:
+    image: .
+    volumes:
+      - ./app

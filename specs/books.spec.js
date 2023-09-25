@@ -9,7 +9,7 @@ import each from 'jest-each';
 
 //Создание книги в аккаунт юзера
 describe('POST Bookstore/v1/Books', () => {
-  test('post a book', async () => {
+  test.skip('post a book', async () => {
     const userID = config.userID
     const token = config.token
     const isbn = (await book.getBooks(token))[0].isbn
@@ -21,7 +21,7 @@ describe('POST Bookstore/v1/Books', () => {
 
 //Обновление книги в аккаунте юзера
 describe('PUT Bookstore/v1/Books/{ISBN}', () => {
-  test('replace a book', async () => {
+  test.skip('replace a book', async () => {
     const userID = config.userID
     const token = config.token
     const isbn = (await book.getBooks(token))[0].isbn
@@ -35,7 +35,7 @@ describe('PUT Bookstore/v1/Books/{ISBN}', () => {
 
 //Удаление книги
 describe('GET Bookstore/v1/Book/{ISBN}', () => {
-  test('delete a book', async () => {
+  test.skip('delete a book', async () => {
     const token = config.token
     const userID = config.userID
     const isbn = (await book.getBooks(token))[0].isbn

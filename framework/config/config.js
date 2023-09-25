@@ -5,7 +5,7 @@ const config = {
         password: "121FDsvdfB!RFEF_"
     },
     newUser: {
-        userName: 'anotherFifteen',
+        userName: 'anothehhrFih8fteen',
         password: 'pas!1SS=4_o1DwoRd'
     },
     token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6Im5ldnNldnNib3JlIiwicGFzc3dvcmQiOiIxMjFGRHN2ZGZCIVJGRUZfIiwiaWF0IjoxNjkzNTAzNzA5fQ.yZGw0a8Sh29cfojQi237FAdKFiPpHbd5FVj794muIlw',

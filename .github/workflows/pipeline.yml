@@ -40,9 +40,9 @@ jobs:
     - name: upload report
       uses: actions/upload-artifact@v3
       with: 
-        name: report
+        name: test-report
         if-no-files-found: error
-        path: './test-report'
+        path: ./test-report.html
 
     - name: send telegram message on push
       uses: appleboy/telegram-action@master
@@ -56,12 +56,55 @@ jobs:
           Repository: ${{ github.repository }}
 
           See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
-
+    
     - name: upload artifact
       uses: actions/upload-pages-artifact@v1
       with:
-        path: './test-report'
+        path: .
 
     - name: deploy to GitHub Pages
       id: deployment
       uses: actions/deploy-pages@v1
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: .
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
+
+  # deploy:
+  #   runs-on: ubuntu-latest
+  #   needs: build
+  #   environment:
+  #     name: github-pages
+  #     url: ${{steps.deployment.outputs.page_url}}
+            
+  #   steps:
+  #   - uses: actions/download-artifact@master
+  #     with:
+  #       name: report
+  #       path: .
+  #   - uses: actions/configure-pages@v1
+  #   - uses: actions/upload-pages-artifact@v1
+  #     with:
+  #       path: .
+  #   - id: deployment
+  #     uses: actions/deploy-pages@main 
+
+    # - name: upload artifact
+    #   uses: actions/upload-pages-artifact@v1
+    #   with:
+    #     path: './test-report'
+
+    # - name: deploy to GitHub Pages
+    #   id: deployment
+    #   uses: actions/deploy-pages@v1

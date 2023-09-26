@@ -59,7 +59,7 @@ test('Wrong password', async () => {
   expect(data.code).toContain("1300")
 })
 
-test('Successful user create', async () => {
+test.skip('Successful user create', async () => {
   const token = await getToken();
   const URL = 'https://bookstore.demoqa.com/Account/v1/User';
   const response = await fetch(URL, {

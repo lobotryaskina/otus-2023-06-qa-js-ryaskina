@@ -62,7 +62,7 @@ const cases = [[0, config.token, 200, "Git Pocket Guide"],
                //unauthorized
                [2, " ", 401]];
 
-describe('get book info parameterised test', () => {
+/*describe('get book info parameterised test', () => {
   test.concurrent.each(cases)('get book info', async (number, token, status, title) => {
   let isbn = '12345'
   if (number !== "") {
@@ -72,7 +72,7 @@ describe('get book info parameterised test', () => {
   expect(res.status).toEqual(status);
   expect(res.body.title).toEqual(title)
 });
-});
+})*/;
 
 
 

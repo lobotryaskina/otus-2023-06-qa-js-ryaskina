@@ -61,7 +61,6 @@ jobs:
       uses: actions/upload-pages-artifact@v1
       with:
         name: report
-        if-no-files-found: error
         path: './test-report.html'
 
     - name: deploy to GitHub Pages

@@ -65,7 +65,7 @@ jobs:
 
     - name: deploy to GitHub Pages
       id: deployment
-      uses: actions/deploy-pages@v1
+      uses: actions/deploy-pages@main
 
   deploy:
     runs-on: ubuntu-latest

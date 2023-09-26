@@ -40,9 +40,9 @@ jobs:
     - name: upload report
       uses: actions/upload-artifact@v3
       with: 
-        name: report
+        name: test-report
         if-no-files-found: error
-        path: ./jest-html-report
+        path: .
 
     - name: send telegram message on push
       uses: appleboy/telegram-action@master
@@ -60,7 +60,7 @@ jobs:
     - name: upload artifact
       uses: actions/upload-pages-artifact@v1
       with:
-        path: './jest-html-report'
+        path: .
 
     - name: deploy to GitHub Pages
       id: deployment
@@ -76,7 +76,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
-          path: './jest-html-report'
+          path: .
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1

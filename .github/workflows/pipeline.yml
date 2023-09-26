@@ -57,11 +57,30 @@ jobs:
 
           See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
 
-    - name: upload artifact
-      uses: actions/upload-pages-artifact@v1
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    environment:
+      name: github-pages
+      url: ${{steps.deployment.outputs.page_url}}
+            
+    steps:
+    - uses: actions/download-artifact@master
       with:
-        path: './test-report'
+        name: report
+        path: .
+    - uses: actions/configure-pages@v1
+    - uses: actions/upload-pages-artifact@v1
+      with:
+        path: .
+    - id: deployment
+      uses: actions/deploy-pages@main 
 
-    - name: deploy to GitHub Pages
-      id: deployment
-      uses: actions/deploy-pages@v1
+    # - name: upload artifact
+    #   uses: actions/upload-pages-artifact@v1
+    #   with:
+    #     path: './test-report'
+
+    # - name: deploy to GitHub Pages
+    #   id: deployment
+    #   uses: actions/deploy-pages@v1

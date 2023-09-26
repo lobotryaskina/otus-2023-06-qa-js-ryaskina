@@ -60,8 +60,7 @@ jobs:
     - name: upload artifact
       uses: actions/upload-pages-artifact@v1
       with:
-        name: report
-        path: './test-report.html'
+        path: './test-report'
 
     - name: deploy to GitHub Pages
       id: deployment

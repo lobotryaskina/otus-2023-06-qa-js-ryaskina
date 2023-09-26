@@ -65,26 +65,48 @@ jobs:
 
     - name: deploy to GitHub Pages
       id: deployment
-      uses: actions/deploy-pages@main
+      uses: actions/deploy-pages@v1
+
+    - name: Deploy
+      uses: JamesIves/github-pages-deploy-action@v4
+      with:
+        folder: jest-html-report
+        clean: true
+        token: ${{ secrets.TOKEN }}
 
   deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     needs: build
-    environment:
-      name: report
-      url: ${{steps.deployment.outputs.page_url}}
-            
     steps:
-    - uses: actions/download-artifact@master
-      with:
-        name: report
-        path: .
-    - uses: actions/configure-pages@v1
-    - uses: actions/upload-pages-artifact@v1
-      with:
-        path: .
-    - id: deployment
-      uses: actions/deploy-pages@main 
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: './jest-html-report'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
+
+  # deploy:
+  #   runs-on: ubuntu-latest
+  #   needs: build
+  #   environment:
+  #     name: github-pages
+  #     url: ${{steps.deployment.outputs.page_url}}
+            
+  #   steps:
+  #   - uses: actions/download-artifact@master
+  #     with:
+  #       name: report
+  #       path: .
+  #   - uses: actions/configure-pages@v1
+  #   - uses: actions/upload-pages-artifact@v1
+  #     with:
+  #       path: .
+  #   - id: deployment
+  #     uses: actions/deploy-pages@main 
 
     # - name: upload artifact
     #   uses: actions/upload-pages-artifact@v1

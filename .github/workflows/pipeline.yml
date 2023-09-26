@@ -56,6 +56,12 @@ jobs:
           Repository: ${{ github.repository }}
 
           See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
+    
+    - name: upload artifact
+      uses: actions/upload-pages-artifact@v1
+      with:
+        name: report
+        path: .
 
     - name: deploy to GitHub Pages
       id: deployment

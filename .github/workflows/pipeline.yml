@@ -1,0 +1,67 @@
+name: CI Test
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x]
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+
+    - name: npm install
+      run: npm i
+
+    - name: build package
+      run: npm run build --if-present
+
+    - name: run tests
+      run: npm run test
+
+    - name: upload report
+      uses: actions/upload-artifact@v3
+      with: 
+        name: report
+        if-no-files-found: error
+        path: ./test-report
+
+    - name: send telegram message on push
+      uses: appleboy/telegram-action@master
+      with:
+        to: ${{ secrets.TELEGRAM_CHANNEL_ID }}
+        token: ${{ secrets.TELEGRAM_TOKEN }}
+        message: |
+          ${{ github.actor }} created commit:
+          Commit message: ${{ github.event.commits[0].message }}
+
+          Repository: ${{ github.repository }}
+
+          See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
+
+    - name: upload artifact
+      uses: actions/upload-pages-artifact@v1
+      with:
+        path: './test-report'
+
+    - name: deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v1

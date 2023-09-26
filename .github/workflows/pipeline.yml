@@ -67,13 +67,6 @@ jobs:
       id: deployment
       uses: actions/deploy-pages@v1
 
-    - name: Deploy
-      uses: JamesIves/github-pages-deploy-action@v4
-      with:
-        folder: jest-html-report
-        clean: true
-        token: ${{ secrets.TOKEN }}
-
   deploy:
     environment:
       name: github-pages
